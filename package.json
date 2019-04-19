@@ -1,15 +1,16 @@
 {
   "name": "colorimetry",
-  "version": "1.0.0",
+  "description": "A web-based colorimetry toolkit, leveraging Image Sequencer",
+  "version": "0.0.1",
   "main": "index.js",
   "repository": "https://github.com/publiclab/colorimetry.git",
-  "author": "jywarren",
-  "license": "GNU",
+  "author": "Public Lab",
+  "license": "GPL-3",
   "dependencies": {
     "base64-img": "^1.0.4",
     "image-sequencer": "^3.1.1"
   },
   "scripts": {
-    "start": "node colorimetry.js"
+    "start": "node src/colorimetry.js"
   }
 }
