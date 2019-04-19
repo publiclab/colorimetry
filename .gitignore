@@ -42,3 +42,4 @@ dist
 *.swp
 
 images/*
+outputs/*

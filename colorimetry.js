@@ -1,30 +1,24 @@
 const ImageSequencer = require('image-sequencer')
+const base64 = require('base64-img')
 
-const testSequencer = ImageSequencer({ ui : false })
-const resultSequencer = ImageSequencer({ ui : false })
-const testOptions = {
-          x: '130',
-          y: '115',
-          w: '50',
-          h: '50'
-      }
-const resultOptions = {
-          x: '550',
-          y: '115',
-          w: '50',
-          h: '50'
-      }
+const subject = ImageSequencer()
+const result = ImageSequencer()
+const target = 'outputs'
+const subjectOptions = { x: '130', y: '115', w: '50', h: '50' }
+const resultOptions = { x: '550', y: '115', w: '50', h: '50' }
 
-testSequencer.loadImages('images/test.jpg')
-testSequencer.addSteps('crop', resultOptions)
-testSequencer.addSteps('average')
-testSequencer.run(function cb(out) {
-  console.log(testSequencer.steps[2].output.src)
+subject.loadImages('images/test.jpg')
+subject.addSteps('crop', subjectOptions)
+subject.addSteps('average')
+subject.run(function cb(out) {
+  let subjectOutput = subject.steps[2].output.src
+  base64.imgSync(subjectOutput, target, 'subject')
 })
 
-resultSequencer.loadImages('images/test.jpg')
-resultSequencer.addSteps('crop', resultOptions)
-resultSequencer.addSteps('average')
-resultSequencer.run(function cb(out) {
-  console.log(resultSequencer.steps[2].output.src)
+result.loadImages('images/test.jpg')
+result.addSteps('crop', resultOptions)
+result.addSteps('average')
+result.run(function cb(out) {
+  let resultOutput = result.steps[2].output.src
+  base64.imgSync(resultOutput, target, 'result')
 })
