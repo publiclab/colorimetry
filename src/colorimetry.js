@@ -5,10 +5,6 @@ const subject = ImageSequencer()
 const result = ImageSequencer()
 const target = 'outputs'
 
-// hardcoded crop values (for now)
-const subjectOptions = { x: '130', y: '115', w: '50', h: '50' }
-const resultOptions = { x: '550', y: '115', w: '50', h: '50' }
-
 let subjectRedChannel = ''
 let resultRedChannel = ''
 let imageRatio = ''
@@ -16,8 +12,7 @@ let imageRatio = ''
 // returns promise to subject image
 var subjectPromise = new Promise((resolve, reject) => {
     subject.loadImage('images/test.jpg')
-    subject.addSteps('crop', subjectOptions)
-    subject.addSteps('average')
+    subject.addSteps('crop{x:130|y:115|w:50|h:50},average{}')
     subject.run(function cb(out) {
       resolve(subject.steps[2])
     })
@@ -26,8 +21,7 @@ var subjectPromise = new Promise((resolve, reject) => {
 // returns promise to result image
 var resultPromise = new Promise((resolve, reject) => {
     result.loadImage('images/test.jpg')
-    result.addSteps('crop', resultOptions)
-    result.addSteps('average')
+    result.addSteps('crop{x:550|y:115|w:50|h:50},average{}')
     result.run(function cb(out) {
       resolve(result.steps[2])
     })
