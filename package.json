@@ -1,0 +1,11 @@
+{
+  "name": "colorimetry",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/publiclab/colorimetry.git",
+  "author": "jywarren",
+  "license": "GNU",
+  "dependencies": {
+    "image-sequencer": "^3.1.1"
+  }
+}
