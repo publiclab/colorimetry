@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": "https://github.com/publiclab/colorimetry.git",
   "author": "Public Lab",
-  "license": "GPL-3",
+  "license": "GPL-3.0",
   "dependencies": {
     "base64-img": "^1.0.4",
     "image-sequencer": "^3.1.1"
