@@ -8,7 +8,7 @@
   "license": "GPL-3.0",
   "dependencies": {
     "base64-img": "^1.0.4",
-    "image-sequencer": "^3.3.0"
+    "image-sequencer": "^3.3.5"
   },
   "scripts": {
     "start": "node src/colorimetry.js"
