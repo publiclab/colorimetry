@@ -53,7 +53,7 @@
                   <h5>Your data will not be saved or uploaded when you select an image.</h5>
                 </div>
                 <div class="buttons-div">
-                  <button type="button" class="btn btn-back" ><i class="fa fa-angle-double-left" aria-hidden="true"></i>  Go Back</button>
+                  <button type="button" class="btn btn-over" onclick="changeScreen(event)"><i class="fa fa-angle-double-left" aria-hidden="true"></i>  Start Over</button>
                   <button type="button" class="btn btn-next" onclick="changeScreen(event)">Next</button>
               </div>
           </div>
@@ -62,7 +62,7 @@
     <div class = "screen container-3">
         <div class = "box-1">
             <div class="upper-wrapper">
-                <h2 class = "head-screens">1. Let's compare the colored patches.</h3>
+                <h2 class = "head-screens">2. Now click in the center of the left patch.</h3>
                   <div class="input-img">
                       <h4 class="selector" >
                           Drag your image into this box or <br><br><span style = "border-bottom: solid #727171 2px">click here to select an image</span>
@@ -89,8 +89,8 @@
                   <h5>Your data will not be saved or uploaded when you select an image.</h5>
                 </div>
                 <div class="buttons-div">
-                  <button type="button" class="btn btn-back" ><i class="fa fa-angle-double-left" aria-hidden="true"></i>  Go Back</button>
-                  <!-- <button type="button" class="btn btn-next" >Next</button> -->
+                  <button type="button" class="btn btn-back" onclick="changeScreen(event)"><i class="fa fa-angle-double-left" aria-hidden="true"></i>  Go Back</button>
+                  <button type="button" class="btn btn-next" onclick="changeScreen(event)">Next</button>
               </div>
           </div>
           
@@ -100,9 +100,20 @@
 
   function changeScreen(event){
     var op = event.target.className;
-    console.log($(event.target).parents(".screen"))
-    $(event.target).parents(".screen").fadeOut("slow");
+    if(op.includes("btn-next")){
+      $(event.target).parents(".screen").fadeOut("slow");
     $(event.target).parents(".screen").next().fadeIn("slow");
+    }
+    else if(op.includes("btn-back")){
+      $(event.target).parents(".screen").fadeOut("slow");
+    $(event.target).parents(".screen").prev().fadeIn("slow");
+    }
+    else if(op.includes("btn-over")){
+      $(event.target).parents(".screen").fadeOut("slow");
+      console.log($(".container-1"))
+      $(".container-2").fadeIn("slow");
+    }
+   
   }
   
   
