@@ -204,3 +204,18 @@ img {
     align-items: center;
     flex-direction: column;
 }
+
+.result{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 4% 0 4% 0;
+}
+
+.result>h2,.result>h4{
+    font-family: 'Nanum Gothic', sans-serif;
+    text-align: center;
+    margin:3% 0 3% 0;
+    font-weight:bold;
+    color: rgb(105, 105, 105);
+}
