@@ -46,7 +46,7 @@
                         Your images should be well<br> lit and look like this <br>example.
                       </p>
                  </div>
-                  <div class="learn">Learn more <i class="fas fa-angle-double-right"></i></div>
+                  <div ><span class="learn">Learn more <i class="fas fa-angle-double-right"></i></span></div>
                 </div>
               </div>
               <div class="warnings">
@@ -54,7 +54,7 @@
                 </div>
                 <div class="buttons-div">
                   <button type="button" class="btn btn-over" onclick="changeScreen(event)"><i class="fa fa-angle-double-left" aria-hidden="true"></i>  Start Over</button>
-                  <button type="button" class="btn btn-next" onclick="changeScreen(event)">Next</button>
+                  <button type="button" class="btn btn-next" onclick="changeScreen(event)">Next </i></button>
               </div>
           </div>
           
@@ -63,38 +63,78 @@
         <div class = "box-1">
             <div class="upper-wrapper">
                 <h2 class = "head-screens">2. Now click in the center of the left patch.</h3>
-                  <div class="input-img">
-                      <h4 class="selector" >
-                          Drag your image into this box or <br><br><span style = "border-bottom: solid #727171 2px">click here to select an image</span>
-                        </h4>
+                  <div class="input-img-op">
+                      
                   </div>
             </div>
-              <div class="info">
-                <div class="example-card">
-                  <img src="./public/images/example.jpg" alt="" srcset="">
-                </div>
-                <div class="exp-text">
-                 <div class="exp-div">
-                    <p style="margin-bottom:1.6vw;">
-                        When taking a picture, line<br>up the edge with the<br>dotted line on your card.
-                      </p>
-                      <p style="margin-bottom:1.6vw;">
-                        Your images should be well<br> lit and look like this <br>example.
-                      </p>
-                 </div>
-                  <div class="learn">Learn more <i class="fas fa-angle-double-right"></i></div>
-                </div>
-              </div>
+             <div class="badge-img">
+               <img src="./public/images/colorileft.png" alt="">
+             </div>
               <div class="warnings">
-                  <h5>Your data will not be saved or uploaded when you select an image.</h5>
+                  <h5>Your selection should look like this. <span class="learn">Learn more <i class="fas fa-angle-double-right"></i></span></h5>
                 </div>
                 <div class="buttons-div">
                   <button type="button" class="btn btn-back" onclick="changeScreen(event)"><i class="fa fa-angle-double-left" aria-hidden="true"></i>  Go Back</button>
-                  <button type="button" class="btn btn-next" onclick="changeScreen(event)">Next</button>
+                  <button type="button" class="btn btn-next" onclick="changeScreen(event)">Next </i></button>
               </div>
           </div>
           
     </div>
+    <div class = "screen container-4">
+      <div class = "box-1">
+          <div class="upper-wrapper">
+              <h2 class = "head-screens">2. Now click in the center of the left patch.</h3>
+                <div class="input-img-op">
+                    
+                </div>
+          </div>
+           <div class="badge-img">
+             <img src="./public/images/coloriright.png" alt="">
+           </div>
+            <div class="warnings">
+                <h5>Your selection should look like this. <span class="learn">Learn more <i class="fas fa-angle-double-right"></i></span></h5>
+              </div>
+              <div class="buttons-div">
+                <button type="button" class="btn btn-back" onclick="changeScreen(event)"><i class="fa fa-angle-double-left" aria-hidden="true"></i>  Go Back</button>
+                <button type="button" class="btn btn-next" onclick="changeScreen(event)">Next </i></button>
+            </div>
+        </div>
+        
+  </div>
+  <div class = "screen container-5">
+    <div class = "box-1">
+        <div class="upper-wrapper">
+            <h2 class = "head-screens">4. Results</h3>
+              <div class="input-img-op">
+                 
+              </div>
+        </div>
+          <div class="info">
+            <div class="example-card">
+              <img src="./public/images/example.jpg" alt="" srcset="">
+            </div>
+            <div class="exp-text">
+             <div class="exp-div">
+                <p style="margin-bottom:1.6vw;">
+                    When taking a picture, line<br>up the edge with the<br>dotted line on your card.
+                  </p>
+                  <p style="margin-bottom:1.6vw;">
+                    Your images should be well<br> lit and look like this <br>example.
+                  </p>
+             </div>
+              <div class="learn">Learn more <i class="fas fa-angle-double-right"></i></div>
+            </div>
+          </div>
+          <div class="warnings">
+              <h5>Your data will not be saved or uploaded when you select an image.</h5>
+            </div>
+            <div class="buttons-div">
+              <button type="button" class="btn btn-back" onclick="changeScreen(event)"><i class="fa fa-angle-double-left" aria-hidden="true"></i>  Go Back</button>
+              <button type="button" class="btn btn-over" onclick="changeScreen(event)">Start Over</button>
+          </div>
+      </div>
+      
+</div>
 </div>.
 <script>
 
@@ -110,7 +150,6 @@
     }
     else if(op.includes("btn-over")){
       $(event.target).parents(".screen").fadeOut("slow");
-      console.log($(".container-1"))
       $(".container-2").fadeIn("slow");
     }
    
