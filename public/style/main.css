@@ -1,4 +1,6 @@
-
+body{
+    font-family: 'Nanum Gothic', sans-serif;
+}
 
 .head-title {
     color: #6b510a
@@ -76,11 +78,30 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-.input-img>h4{
     text-align: center;
-    color: #4d4b4b;
+}
+.my-form>h4,#file-inp-label{
+    text-align: center;
+    color: #727171;
     font-size: 1.4vw;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: bold;
+}
+
+.my-form>label{
+    font-weight: 600;
+}
+#file-inp-label:hover{
+    cursor: pointer !important;
+}
+
+.my-form>h4{
+    height: 1.2vw !important;
+}
+
+
+#fileElem{
+    display: none;
 }
 
 a{
@@ -195,8 +216,7 @@ img {
 
 .input-img-op {
     margin-top: 5%;
-    width: 33vw;
-    height: 24vw;
+
     background-color: #ebe8e8;
     border:solid 2px #d8d8d8;
     display: flex;
@@ -219,3 +239,7 @@ img {
     font-weight:bold;
     color: rgb(105, 105, 105);
 }
+
+#drop-area.highlight {
+    border-color: purple;
+  }
