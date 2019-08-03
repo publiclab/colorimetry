@@ -87,6 +87,11 @@ body{
     font-family: 'Nanum Gothic', sans-serif;
     font-weight: bold;
 }
+#file-inp-label{
+    border-bottom: solid #727171 2px;
+
+}
+
 
 .my-form>label{
     font-weight: 600;
@@ -153,7 +158,6 @@ img {
     color: #535353;
     margin-bottom: 2%;
     font-style: italic;
-    /* width:80%; */
     text-align: center;
 }
 
@@ -164,7 +168,6 @@ img {
 @media(max-width:700px){
     .box-1{
         width: 70vw;
-        /* height:70vh; */
     }
     .info{
         width:45vw;
