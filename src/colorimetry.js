@@ -1,5 +1,8 @@
 var ImageSequencer = require('image-sequencer');
 
+var getPixels = require('get-pixels');
 
-
-module.exports=  ImageSequencer;
+window.imp={
+    ImageSequencer,
+    getPixels
+}

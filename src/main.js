@@ -1,1 +1,0 @@
-var sequencer = require('./colorimetry');

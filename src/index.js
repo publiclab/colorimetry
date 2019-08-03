@@ -65,15 +65,34 @@ reader.onloadend = function() {
 }
 function displayPreview(){
   document.getElementById('gallery').appendChild(img)
-  var sequencer = ImageSequencer()
-  console.log(sequencer)
-
+  var sequencer = imp.ImageSequencer({inBrowser:false})
+  
   $('img#sel').imgAreaSelect({
       handles: true,
-      onSelectEnd: function (img, selection) {
-        
-      console.log('width: ' + selection.width + '; height: ' + selection.height);
-  }
+      onSelectEnd: cb
   });
+  function cb(img, selection) {
+    sequencer.loadImage(img.src, function(){
+      this.addSteps('crop{x:'+selection.x1+'|y:'+selection.y1+'|w:'+selection.width+'|h:'+selection.height+'},average').run(function (out){
+        imp.getPixels(out, function (err, pixels) {
+          var i = 0, sum = [0, 0, 0, 0];
+      while (i < pixels.data.length) {
+        sum[0] += pixels.data[i++];
+        sum[1] += pixels.data[i++];
+        sum[2] += pixels.data[i++];
+        sum[3] += pixels.data[i++];
+      }
+
+      let divisor = pixels.data.length / 4;
+
+      sum[0] = Math.floor(sum[0] / divisor);
+      console.log("red channel: "+sum[0])
+        })
+      })
+      
+
+    })
+    
+}
 }
 }
