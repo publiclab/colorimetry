@@ -39,7 +39,7 @@
                 <h4 class="selector">
                   Drag your image into this box or <br><br>
                 </h4>
-                <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+                <input type="file" id="fileElem"  accept="image/*" oninput="handleFiles(this.files)">
                 <label class="button" for="fileElem" ><span
                     id="file-inp-label">click here to select an image.</span></label>
               </form>
@@ -85,7 +85,7 @@
         <div class="buttons-div">
           <button type="button" class="btn btn-back" onclick="changeScreen(event)"><i class="fa fa-angle-double-left"
               aria-hidden="true"></i> Go Back</button>
-          <button type="button" class="btn btn-next" disabled onclick="changeScreen(event)">Next </i></button>
+          <button type="button" class="btn btn-next"  onclick="changeScreen(event)">Next </i></button>
         </div>
       </div>
 
@@ -108,7 +108,7 @@
         <div class="buttons-div">
           <button type="button" class="btn btn-back" onclick="changeScreen(event)"><i class="fa fa-angle-double-left"
               aria-hidden="true"></i> Go Back</button>
-          <button type="button" class="btn btn-next" disabled onclick="changeScreen(event)">Next </i></button>
+          <button type="button" class="btn btn-next"  onclick="changeScreen(event)">Next </i></button>
         </div>
       </div>
 
