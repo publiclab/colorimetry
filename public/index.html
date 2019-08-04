@@ -85,7 +85,7 @@
         <div class="buttons-div">
           <button type="button" class="btn btn-back" onclick="changeScreen(event)"><i class="fa fa-angle-double-left"
               aria-hidden="true"></i> Go Back</button>
-          <button type="button" class="btn btn-next" onclick="changeScreen(event)">Next </i></button>
+          <button type="button" class="btn btn-next" disabled onclick="changeScreen(event)">Next </i></button>
         </div>
       </div>
 
@@ -94,7 +94,7 @@
       <div class="box-1">
         <div class="upper-wrapper">
           <h2 class="head-screens">3. Now click in the center of the right patch.</h3>
-            <div class="input-img-op">
+            <div id="stepTwo" class="input-img-op">
 
             </div>
         </div>
@@ -108,7 +108,7 @@
         <div class="buttons-div">
           <button type="button" class="btn btn-back" onclick="changeScreen(event)"><i class="fa fa-angle-double-left"
               aria-hidden="true"></i> Go Back</button>
-          <button type="button" class="btn btn-next" onclick="changeScreen(event)">Next </i></button>
+          <button type="button" class="btn btn-next" disabled onclick="changeScreen(event)">Next </i></button>
         </div>
       </div>
 
@@ -117,13 +117,13 @@
       <div class="box-1">
         <div class="upper-wrapper">
           <h2 class="head-screens">4. Results</h3>
-            <div class="input-img-op">
+            <div id="final-res" class="input-img-op">
 
             </div>
         </div>
         <div class="result">
           <h4>The RIGHT side is</h4>
-          <h2>15 % DARKER</h2>
+          <h2 class="res-num">15 % DARKER</h2>
           <h4>than the LEFT side</h4>
         </div>
         <div class="badge-img">
