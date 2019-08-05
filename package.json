@@ -6,12 +6,23 @@
   "repository": "https://github.com/publiclab/colorimetry.git",
   "author": "Public Lab",
   "license": "GPL-3.0",
+  "scripts": {
+    "start": "grunt serve"
+  },
   "dependencies": {
     "get-pixels": "^3.3.2",
     "image-sequencer": "^3.5.1",
     "imgareaselect": "git://github.com/jywarren/imgareaselect.git#v1.0.0-rc.2"
   },
-  "scripts": {
-    "start": "node src/colorimetry.js"
+  "devDependencies": {
+    "grunt": "^1.0.4",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-browserify": "^5.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-uglify-es": "^3.3.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "browserify": "16.2.3",
+    "uglify-es": "^3.3.7",
+    "matchdep": "^2.0.0"
   }
 }
