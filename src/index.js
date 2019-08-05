@@ -96,6 +96,9 @@ function handleDrop(e) {
 }
 
 function cb(img, selection) {
+  $("#loading-1").removeClass("hide");
+  $("#loading-2").removeClass("hide");
+
   var sequencer = imp.ImageSequencer({
     inBrowser: false
   })
@@ -121,6 +124,9 @@ function cb(img, selection) {
         right_red_channel = sum[0];
         $(".container-4 .btn-next").attr("disabled", false);
         }
+        $("#loading-1").addClass("hide");
+        $("#loading-2").addClass("hide");
+
       })
     })
   })
@@ -147,6 +153,7 @@ function previewFile(file) {
   function displayPreview() {
     if($("#gallery img")) $("#gallery img").remove();
     document.getElementById('gallery').appendChild(img);
+    
     $('img#sel').imgAreaSelect({
       handles: true,
       autoHide:true,
