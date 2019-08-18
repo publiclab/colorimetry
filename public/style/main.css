@@ -106,11 +106,11 @@ body {
 }
 
 #file-inp-label:hover {
-    cursor: pointer !important;
+    cursor: pointer;
 }
 
 .my-form>h4 {
-    height: 1.2vw !important;
+    height: 1.2vw ;
 }
 
 

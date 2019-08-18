@@ -2,28 +2,32 @@ let left_red_channel, right_red_channel,img;
 
 readyScript();
 
-function changeScreen(event) {
-  var op = event.target.className;
-  if (op.includes("btn-next")) {
-    $(event.target).parents(".screen").fadeOut("slow");
-    $(event.target).parents(".screen").next().fadeIn("slow");
 
-    if($(event.target).parents(".screen").attr('class').includes("container-3")){
-      document.getElementById('stepTwo').appendChild(img);
-      $(".container-4 .btn-next").attr("disabled", true);
-      $('img#sel').imgAreaSelect({
-        handles: true,
-        autoHide:true,
-        onSelectEnd: cb
-      });
-    }
-    else if($(event.target).parents(".screen").attr('class').includes("container-4")){
-      var result = (left_red_channel-right_red_channel)*100/right_red_channel;
-      document.getElementById('final-res').appendChild(img);
-      $('.res-num').html(parseInt(result,10) + " % DARKER")
-    }
-  } else if (op.includes("btn-back")) {
-    $(event.target).parents(".screen").fadeOut("slow");
+// Handles next button changes
+function handleButtonNext(event){
+  $(event.target).parents(".screen").fadeOut("slow");
+  $(event.target).parents(".screen").next().fadeIn("slow");
+
+  if($(event.target).parents(".screen").attr('class').includes("container-3")){
+    document.getElementById('stepTwo').appendChild(img);
+    $(".container-4 .btn-next").attr("disabled", true);
+    // drag functionality
+    $('img#sel').imgAreaSelect({
+      handles: true,
+      autoHide:true,
+      onSelectEnd: cb
+    });
+  }
+  else if($(event.target).parents(".screen").attr('class').includes("container-4")){
+    var result = (left_red_channel-right_red_channel)*100/right_red_channel; // calculates final result
+    document.getElementById('final-res').appendChild(img);
+    $('.res-num').html(Math.round(result*100)/100+ " % DARKER")
+  }
+}
+
+//Handles back button changes
+function handleButtonBack(event){
+  $(event.target).parents(".screen").fadeOut("slow");
     $(event.target).parents(".screen").prev().fadeIn("slow");
     if($(event.target).parents(".screen").attr('class').includes("container-5")){
       document.getElementById('stepTwo').appendChild(img);
@@ -50,12 +54,27 @@ function changeScreen(event) {
     right_red_channel = undefined;
     readyScript()
     }
+}
+
+
+//handles start over button changes
+function handleButtonOver(event){
+  $(event.target).parents(".screen").fadeOut("slow");
+  $(".container-2").fadeIn("slow");
+  left_red_channel = undefined;
+  right_red_channel = undefined;
+  readyScript();
+}
+
+//handles change of different views on screen
+function changeScreen(event) {
+  var op = event.target.className;
+  if (op.includes("btn-next")) {
+    handleButtonNext(event);
+  } else if (op.includes("btn-back")) {
+    handleButtonBack(event);
   } else if (op.includes("btn-over")) {
-    $(event.target).parents(".screen").fadeOut("slow");
-    $(".container-2").fadeIn("slow");
-    left_red_channel = undefined;
-    right_red_channel = undefined;
-    readyScript();
+   handleButtonOver(event);
   }
 }
 
@@ -95,6 +114,7 @@ function handleDrop(e) {
 }
 }
 
+// Callback to be executed  after drag and drop functionality 
 function cb(img, selection) {
   $("#loading-1").removeClass("hide");
   $("#loading-2").removeClass("hide");
