@@ -38,8 +38,10 @@ function handleButtonNext(event){
     var canvas = document.getElementById("result-canvas");
     var ctx = canvas.getContext("2d");
     ctx.rect(leftDrag.x,leftDrag.y,leftDrag.w,leftDrag.h);
+    ctx.strokeStyle = 'red';
     ctx.stroke();
     ctx.rect(rightDrag.x,rightDrag.y,rightDrag.w,rightDrag.h);
+    ctx.strokeStyle = 'red';
     ctx.stroke();
     $('.res-num').html(Math.round(result*100)/100+ " % DARKER");
   }
