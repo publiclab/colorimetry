@@ -1,6 +1,19 @@
-let left_red_channel, right_red_channel,img;
+let left_red_channel, right_red_channel,img,ias;
+let leftDrag = {
+},
+rightDrag = {
+};
 
 readyScript();
+
+function addImgAreaSelect(){
+  let ias = $('img#sel').imgAreaSelect({
+    handles: true,
+    instance:true,
+    onSelectEnd: cb
+  });
+  return ias;
+}
 
 
 // Handles next button changes
@@ -12,16 +25,26 @@ function handleButtonNext(event){
     document.getElementById('stepTwo').appendChild(img);
     $(".container-4 .btn-next").attr("disabled", true);
     // drag functionality
-    $('img#sel').imgAreaSelect({
-      handles: true,
-      autoHide:true,
-      onSelectEnd: cb
-    });
+    ias = addImgAreaSelect();
   }
   else if($(event.target).parents(".screen").attr('class').includes("container-4")){
     var result = (left_red_channel-right_red_channel)*100/right_red_channel; // calculates final result
-    document.getElementById('final-res').appendChild(img);
-    $('.res-num').html(Math.round(result*100)/100+ " % DARKER")
+    var canvas = document.getElementById("result-canvas");
+    var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    canvas.width = img.width;
+    canvas.height = img.height;
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0, img.width, img.height);
+    var canvas = document.getElementById("result-canvas");
+    var ctx = canvas.getContext("2d");
+    ctx.rect(leftDrag.x,leftDrag.y,leftDrag.w,leftDrag.h);
+    ctx.stroke();
+    ctx.rect(rightDrag.x,rightDrag.y,rightDrag.w,rightDrag.h);
+    ctx.stroke();
+    $('.res-num').html(Math.round(result*100)/100+ " % DARKER");
+  }
+  if(ias){
+    ias.cancelSelection();
   }
 }
 
@@ -31,21 +54,13 @@ function handleButtonBack(event){
     $(event.target).parents(".screen").prev().fadeIn("slow");
     if($(event.target).parents(".screen").attr('class').includes("container-5")){
       document.getElementById('stepTwo').appendChild(img);
-      $('img#sel').imgAreaSelect({
-        handles: true,
-        autoHide:true,
-        onSelectEnd: cb
-      });
+      addImgAreaSelect();
       right_red_channel = undefined;
       $(".container-4 .btn-next").attr("disabled", true);
     }
     else if($(event.target).parents(".screen").attr('class').includes("container-4")){
       document.getElementById('gallery').appendChild(img);
-      $('img#sel').imgAreaSelect({
-        handles: true,
-        autoHide:true,
-        onSelectEnd: cb
-      });
+      addImgAreaSelect();
       left_red_channel = undefined;
       $(".container-3 .btn-next").attr("disabled", true);
     }
@@ -116,6 +131,22 @@ function handleDrop(e) {
 
 // Callback to be executed  after drag and drop functionality 
 function cb(img, selection) {
+  if (selection.width<11 || selection.height<11){
+    alert("Width and height cannot be less than 10px");
+    return;
+}
+if(!leftDrag.x){
+  leftDrag.x = selection.x1;
+  leftDrag.y = selection.y1;
+  leftDrag.w = selection.width;
+  leftDrag.h = selection.height;
+}
+else{
+  rightDrag.x = selection.x1;
+  rightDrag.y = selection.y1;
+  rightDrag.w = selection.width;
+  rightDrag.h = selection.height;
+}
   $("#loading-1").removeClass("hide");
   $("#loading-2").removeClass("hide");
 
@@ -174,10 +205,6 @@ function previewFile(file) {
     if($("#gallery img")) $("#gallery img").remove();
     document.getElementById('gallery').appendChild(img);
     
-    $('img#sel').imgAreaSelect({
-      handles: true,
-      autoHide:true,
-      onSelectEnd: cb
-    });
+    addImgAreaSelect();
   }
 }
