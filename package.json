@@ -15,7 +15,7 @@
     "imgareaselect": "git://github.com/jywarren/imgareaselect.git#v1.0.0-rc.2"
   },
   "devDependencies": {
-    "grunt": "^1.1.0",
+    "grunt": "^1.2.1",
     "grunt-browser-sync": "^2.2.0",
     "grunt-browserify": "^5.0.0",
     "grunt-contrib-concat": "^1.0.1",
