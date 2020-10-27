@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "get-pixels": "^3.3.2",
-    "image-sequencer": "^3.5.1",
+    "image-sequencer": "^3.6.0",
     "imgareaselect": "git://github.com/jywarren/imgareaselect.git#v1.0.0-rc.2"
   },
   "devDependencies": {
